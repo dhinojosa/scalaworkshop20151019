@@ -20,4 +20,27 @@ import scala.beans.BeanProperty
 case class Employee(firstName:String, lastName:String, 
                     department:Department)
 
-class Department(name:String)
+class Department private (val name:String)
+
+object Department {
+    def apply(name:String) = new Department(name)
+}
+
+object Runner {
+  def main(args:Array[String]) {
+     val e = Department("Hardware")
+     println(e.name)
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
